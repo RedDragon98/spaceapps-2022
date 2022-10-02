@@ -33,10 +33,10 @@ const Earth = () => {
     });
 
     return (
-    <mesh position={[0, 0, 0]} rotation-x={Math.PI * 0.25} rotation-y={Math.PI * 0.25} ref={earthRef}>
-        <sphereGeometry attach="geometry" args={[20, 16, 16]} />
-        <meshStandardMaterial map={colorMap}/>
-    </mesh>
+        <mesh position={[0, 0, 0]} rotation-x={Math.PI * 0.25} rotation-y={Math.PI * 0.25} ref={earthRef}>
+            <sphereGeometry attach="geometry" args={[20, 16, 16]} />
+            <meshStandardMaterial map={colorMap}/>
+        </mesh>
     );
 }
   
