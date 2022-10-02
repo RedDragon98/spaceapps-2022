@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Canvas, useThree } from '@react-three/fiber'
+import React, { useEffect, useRef } from "react";
+import { Canvas, useThree, useFrame } from '@react-three/fiber'
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
@@ -24,11 +24,17 @@ const CameraController = () => {
     return null;
 };
 
-function Sphere(props) {
+const Sphere = () => {
     const colorMap = useLoader(TextureLoader, 'bg.png')
+    
+    const boxRef = useRef();
+
+    useFrame(() => {
+        boxRef.current.rotation.y += 0.01;
+    });
 
     return (
-    <mesh position={[0, 0, 0]} castShadow>
+    <mesh position={[0, 0, 0]} rotation-x={Math.PI * 0.25} rotation-y={Math.PI * 0.25} ref={boxRef}>
         <sphereGeometry attach="geometry" args={[20, 16, 16]} />
         <meshStandardMaterial map={colorMap}/>
     </mesh>
