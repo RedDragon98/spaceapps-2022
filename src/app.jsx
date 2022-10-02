@@ -39,11 +39,11 @@ const Earth = () => {
         </mesh>
     );
 }
-  
+
 
 export const App = () => {
     const gltf = useLoader(GLTFLoader, '/iss.gltf');
-
+    
     return (
         <Canvas>
             <CameraController />
@@ -52,8 +52,12 @@ export const App = () => {
             <Earth/>
             {/*<primitive object={new THREE.AxesHelper(10)} />*/}
             <mesh>
-            <primitive object={gltf.scene} position={[0, 28, 0]} scale={[0.2, 0.2, 0.2]} rotation={[0, 0, 90]}/> {/* ISS */}
+                <primitive object={gltf.scene} position={[0, 28, 0]} scale={[0.2, 0.2, 0.2]} rotation={[0, 0, 90]}/> {/* ISS */}
             </mesh>
+
+            {/* <mesh position={[0, 0, 0]} color="red">
+                <boxGeometry attach="geometry" args={[20, 16, 16]} />
+            </mesh> */} {/* skybox? */}
         </Canvas>
     );
 };
